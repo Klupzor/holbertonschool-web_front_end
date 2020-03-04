@@ -967,5 +967,56 @@
   .menu-btn:checked ~ * .nav{
     max-height: 100%;
     overflow: inherit;
-    background: red;
+  }
+
+  .menu-btn:checked ~ * .navicon {
+    background: transparent;
+  }
+
+  .menu-btn:checked ~ * .navicon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .menu-btn:checked ~ * .navicon::after {
+    top: 0;
+  }
+
+  @media (max-width: 767px) {
+    :root{
+      --header-padding: 2rem 0;
+    }
+
+    .header {
+      background: var(--color-black);
+    }
+
+    .header-container {
+      flex-wrap: wrap;
+      padding: 0 1.5rem;
+    }
+
+    .header .menu-icon {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-logo {
+      flex-basis: 70%;
+    }
+
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    .header-logo {
+      flex-basis: 79%;
+    }
+
+    .header .menu-icon {
+      display: none;
+    }
   }
