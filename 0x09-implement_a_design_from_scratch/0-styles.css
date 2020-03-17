@@ -4,6 +4,8 @@
     --font-color-black: #071629;
 
     --link-color-hover: #FF6565;
+    --color-white: #ffffff;
+
 }
 
 body{
@@ -31,6 +33,9 @@ ul {
 
 .section-home{
     background-image: url(./images/headphones_hero_1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     height: 100vh;
     color: var(--font-color-white);
 }
@@ -83,4 +88,118 @@ p {
 
 .section-home main h4 {
     margin: 0;
+}
+
+
+header .menu-icon{
+    cursor: pointer;
+    user-select: none;
+}
+
+header .menu-icon .navicon {
+    background: var(--color-white);
+    display: block;
+    width: 20px;
+    height: .2rem;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+header .menu-icon .navicon::after, header .menu-icon .navicon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--color-white);
+    transition: background .2s ease-out;
+}
+
+header .menu-icon .navicon::before {
+    top: .7rem;
+}
+
+header .menu-icon .navicon::after {
+    top: -.7rem;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 30px;
+    }
+
+    .section-home main h1 {
+        margin-top: 30vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header .logo {
+        margin: 0 auto;
+    }
+
+    .nav {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav .nav-item {
+        align-self: center;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .menu-icon{
+        position: absolute;
+        padding: 1rem;
+    }
+
+    h1, h2, h3, h4 {
+        text-align: center;
+    }
+    
+}
+
+@media (min-width: 480px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+/**** menu btn *****/
+
+header .menu-btn {
+    display: none;
+}
+
+.menu-btn:checked ~ .navbar-menu {
+    display: block;
+}
+
+.menu-btn:checked ~ * .nav{
+    max-height: 100%;
+    overflow: inherit;
+}
+
+.menu-btn:checked ~ * .navicon {
+    background: transparent;
+}
+
+.menu-btn:checked ~ * .navicon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-btn:checked ~ * .navicon::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
