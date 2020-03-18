@@ -1,0 +1,253 @@
+:root {
+    --font-family-base: 'Source Sans Pro', sans-serif;
+    --font-color-white: #ffffff;
+    --font-color-black: #071629;
+
+    --link-color-hover: #FF6565;
+    --color-white: #ffffff;
+    --color-red: #FF6565;
+
+}
+
+body{
+    margin: 0;
+    font-family: var(--font-family-base);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover, a:active {
+    color: var(--link-color-hover);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-home{
+    background-image: url(./images/headphones_hero_1.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    color: var(--font-color-white);
+}
+
+header {
+    padding: 27px 0 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav{
+    display: flex;
+}
+
+.nav-item{
+    margin-left: 41px;
+}
+
+.btn {
+    border-radius: 22px;
+    background-color: #FF6565;
+    border: none;
+    font-size: 14px;
+    padding: 0.8rem 2rem;
+    color: var(--font-color-white);
+    cursor: pointer;
+    margin: 40px 0;
+}
+
+button:hover , button:active {
+    opacity: 0.9;
+}
+
+p {
+    text-align: center;
+    max-width: 637px;
+}
+
+.aling-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-home main h1 {
+    margin-top: 40vh;
+    margin-bottom: 0;
+}
+
+.section-home main h4 {
+    margin: 0;
+}
+
+
+header .menu-icon{
+    cursor: pointer;
+    user-select: none;
+}
+
+header .menu-icon .navicon {
+    background: var(--color-white);
+    display: block;
+    width: 20px;
+    height: .2rem;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+header .menu-icon .navicon::after, header .menu-icon .navicon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--color-white);
+    transition: background .2s ease-out;
+}
+
+header .menu-icon .navicon::before {
+    top: .7rem;
+}
+
+header .menu-icon .navicon::after {
+    top: -.7rem;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 30px;
+    }
+
+    .section-home main h1 {
+        margin-top: 30vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header .logo {
+        margin: 0 auto;
+    }
+
+    .nav {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav .nav-item {
+        align-self: center;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .menu-icon{
+        position: absolute;
+        padding: 1rem;
+    }
+
+    h1, h2, h3, h4 {
+        text-align: center;
+    }
+    
+}
+
+@media (min-width: 480px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+/**** menu btn *****/
+
+header .menu-btn {
+    display: none;
+}
+
+.menu-btn:checked ~ .navbar-menu {
+    display: block;
+}
+
+.menu-btn:checked ~ * .nav{
+    max-height: 100%;
+    overflow: inherit;
+}
+
+.menu-btn:checked ~ * .navicon {
+    background: transparent;
+}
+
+.menu-btn:checked ~ * .navicon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-btn:checked ~ * .navicon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* ------------What we do section -------------*/
+.service-container {
+    display: flex;
+    margin: 110px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section-what-we h1{
+    margin-top: 110px;
+}
+
+.service-item span{
+    font-size: 5rem;
+    color: var(--color-red);
+}
+
+.service-item {
+    margin: 0 10px;
+    width: 207px;
+}
+
+/* ------------What we do section -------------*/
+
+.section-results {
+    background-image: url(./images/headphones_hero_2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    color: var(--font-color-white);
+}
+
+.section-results .service-item {
+    background-image: url(./images/pentagone.png);
+    background-position: top;
+    background-size: 190px 207px;
+    background-repeat: no-repeat;
+    margin: 30px 10px;
+}
+
+.section-results .service-item span{
+    margin-top: 30px;
+    color: var(--color-white);
+}
+
+.section-results h1{
+    margin-top: 110px;
+}
