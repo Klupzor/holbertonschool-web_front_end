@@ -5,6 +5,7 @@
 
     --link-color-hover: #FF6565;
     --color-white: #ffffff;
+    --color-red: #FF6565;
 
 }
 
@@ -201,4 +202,22 @@ header .menu-btn {
 .menu-btn:checked ~ * .navicon::after {
     transform: rotate(-45deg);
     top: 0;
+}
+
+/* ------------What we do section -------------*/
+.service-container {
+    display: flex;
+    margin: 110px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-item span{
+    font-size: 7rem;
+    color: var(--color-red);
+}
+
+.service-item {
+    margin: 0 10px;
+    width: 207px;
 }
