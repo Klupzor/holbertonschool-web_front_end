@@ -8,17 +8,15 @@ function createElement(data) {
 function queryWikipedia(callback) {
     var req = new XMLHttpRequest()
     var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow&origin=*"
-    // var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow"
-    req.onreadystatechange = function () {
-        if (req.readyState == XMLHttpRequest.DONE) {
+    req.onload = function () {
+        if (req.status == 200) {
             var res = JSON.parse(req.responseText);
             var text = res.query.pages[21721040].extract
             callback(text)
         }
     }
-    // req.setRequestHeader("origin", "*");
-    req.open("GET", url, true)
-    req.send(null)
+    req.open("GET", url)
+    req.send()
 }
 
 queryWikipedia(createElement)
