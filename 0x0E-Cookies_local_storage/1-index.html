@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+
+<body>
+    <h1>Login to the website</h1>
+    <div>
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+    </div>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+    <script type="application/javascript">
+        function setCookies() {
+            var firstname = document.getElementById("firstname").value;
+            var email = document.getElementById("email").value;
+            var d = new Date();
+            d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+            var expires = "expires="+d.toUTCString();
+
+            document.cookie = `firstname=${firstname}; SameSite=Strict; `+ expires;
+            document.cookie = `email=${email} ; SameSite=Strict; `+ expires;
+        }
+
+        function showCookies() {
+            var newP = document.createElement("p");
+            var pContent = document.createTextNode(document.cookie);
+            newP.appendChild(pContent);
+
+            document.body.appendChild(newP);
+        }
+    </script>
+</body>
+
+</html>
